@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(${PROJECT_NAME}
         main.cpp
-        Matrix.cpp Matrix.h
-        Vector.cpp Vector.h
+        Matrix.h
+        Vector.h
         operations.h
         )

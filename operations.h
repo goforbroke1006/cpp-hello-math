@@ -12,16 +12,16 @@
 
 template<typename T>
 Vector<T> operator*(const Vector<T> &v, const Matrix<T> &m) {
-    if (v.Length() != m.GetCols()) {
+    if (v.Length() != m.GetColsCount()) {
         throw std::logic_error("unsuitable vector for matrix");
     }
 
     auto result = Vector<T>(v.Length());
     int resCounter = 0;
 
-    for (int ri = 0; ri < m.GetRows(); ++ri) {
+    for (int ri = 0; ri < m.GetRowsCount(); ++ri) {
         T sum = 0;
-        for (int ci = 0; ci < m.GetCols(); ++ci) {
+        for (int ci = 0; ci < m.GetColsCount(); ++ci) {
             const T &mi = m.At(ri, ci);
             const T &vi = v.At(ci);
             sum += (mi * vi);
