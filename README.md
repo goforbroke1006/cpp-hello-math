@@ -1,1 +1,1 @@
-"# cpp-hello-math" 
+# cpp-hello-math
