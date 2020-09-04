@@ -33,10 +33,14 @@ public:
     }
 
     bool operator==(const Vector<T> rh) const {
-        if (items.size() != rh.items.size()) return false;
+        if (items.size() != rh.items.size())
+            return false;
+
         for (int index = 0; index < items.size(); ++index) {
-            if (items[index] != rh.items[index]) return false;
+            if (items[index] != rh.items[index])
+                return false;
         }
+
         return true;
     }
 

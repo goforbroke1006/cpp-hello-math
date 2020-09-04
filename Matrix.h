@@ -20,18 +20,21 @@ public:
         if (rowsCount * colsCount != vector.size()) {
             throw std::logic_error("wrong items sequence size");
         }
+
         this->items = vector;
     }
 
     T At(int ri, int ci) const {
         if (ri >= rowsCount || ci >= colsCount)
             throw std::logic_error("wrong position");
+
         return items[ri * colsCount + ci];
     }
 
     T &At(int ri, int ci) {
         if (ri >= rowsCount || ci >= colsCount)
             throw std::logic_error("wrong position");
+
         return items[ri * colsCount + ci];
     }
 
@@ -55,17 +58,13 @@ public:
 
         for (int resRI = 0; resRI < resultRowsCount; ++resRI) {
             for (int resCI = 0; resCI < resultColsCount; ++resCI) {
-
                 T sum = 0;
 
-                {
-                    for (int k = 0; k < colsCount; ++k) {
-                        sum += (At(resRI, k) * rhs.At(k, resCI));
-                    }
+                for (int k = 0; k < colsCount; ++k) {
+                    sum += (At(resRI, k) * rhs.At(k, resCI));
                 }
 
                 result.At(resRI, resCI) = sum;
-
             }
         }
 
@@ -73,11 +72,13 @@ public:
     }
 
     bool operator==(const Matrix<T> &rhs) const {
-        if (rowsCount != rhs.rowsCount || colsCount != rhs.colsCount) return false;
+        if (rowsCount != rhs.rowsCount || colsCount != rhs.colsCount)
+            return false;
 
         for (int ri = 0; ri < GetRowsCount(); ++ri) {
             for (int ci = 0; ci < GetColsCount(); ++ci) {
-                if (At(ri, ci) != rhs.At(ri, ci)) return false;
+                if (At(ri, ci) != rhs.At(ri, ci))
+                    return false;
             }
         }
 
