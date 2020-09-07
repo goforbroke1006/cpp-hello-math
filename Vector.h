@@ -52,5 +52,12 @@ private:
     std::vector<T> items;
 };
 
+template<typename T>
+std::ostream &operator<<(std::ostream &ostream, const Vector<T> &vector) {
+    for (int index = 0; index < vector.Length(); ++index) {
+        ostream << vector.At(index) << " ";
+    }
+    return ostream;
+}
 
 #endif //MATH_VECTOR_H

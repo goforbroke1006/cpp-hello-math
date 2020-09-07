@@ -3,6 +3,7 @@
 #include "Matrix.h"
 #include "Vector.h"
 #include "operations.h"
+#include "linear-transformation.h"
 
 int main() {
     {
@@ -83,6 +84,24 @@ int main() {
             std::cout << "At last...";
         }
         std::cout << std::endl;
+    }
+
+    {
+        Vector<double> pointA = Vector<double>({-4, -4, 0});
+        Vector<double> pointB = Vector<double>({4, 4, 0});
+
+        pointA = scale(pointA, 0.5, 2, 1);
+        if (Vector<double>({-2, -8, 0}) != pointA) {
+            std::cout << "Failed!! " << pointA << std::endl;
+        } else {
+            std::cout << "Nice!! " << pointA << std::endl;
+        }
+        pointB = scale(pointB, 0.5, 2, 1);
+        if (Vector<double>({2, 8, 0}) != pointB) {
+            std::cout << "Failed!! " << pointB << std::endl;
+        }else {
+            std::cout << "Nice!! " << pointB << std::endl;
+        }
     }
 
     return 0;
